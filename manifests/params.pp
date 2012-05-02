@@ -83,7 +83,7 @@ class cdh::params {
   
   $hadoop_disks = $::cdh_hadoop_disks ? {
     undef   => hiera('cdh_hadoop_disks'),
-    default => split($::cdh_hadoop_disks)
+    default => split($::cdh_hadoop_disks, ',')
   }
   validate_array($hadoop_disks)
   
