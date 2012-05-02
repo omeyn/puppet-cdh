@@ -87,4 +87,9 @@ class cdh::params {
   }
   validate_array($hadoop_disks)
   
+  
+  $hdfs_replication = $::cdh_hdfs_replication ? {
+  	undef   => hiera('cdh_hdfs_replication', 3),
+  	default => $::cdh_hdfs_replication
+  }
 }
