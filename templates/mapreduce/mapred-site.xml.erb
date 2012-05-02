@@ -58,19 +58,19 @@
 
   <property>
     <name>mapred.tasktracker.map.tasks.maximum</name>
-    <value><%= mapred_max_maps %></value>
+    <value><%= max_maps %></value>
     <final>true</final>
   </property>
 
   <property>
     <name>mapred.tasktracker.reduce.tasks.maximum</name>
-    <value><%= mapred_max_reduces %></value>
+    <value><%= max_reduces %></value>
     <final>true</final>
   </property>
 
   <property>
     <name>mapred.child.java.opts</name>
-    <value>-Xmx<%= mapred_max_memory %>m</value>
+    <value>-Xmx<%= max_memory %>m</value>
   </property>
 
 <!--  

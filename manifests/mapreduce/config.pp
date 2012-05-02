@@ -2,9 +2,9 @@ class cdh::mapreduce::config (
   $config_directory,
   $hadoop_disks,
   $jobtracker,
-  $mapreduce_max_maps,
-  $mapreduce_max_reduces,
-  $mapreduce_max_memory
+  $max_maps,
+  $max_reduces,
+  $max_memory
 ) {
   
   # Dependencies
