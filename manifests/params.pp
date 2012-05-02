@@ -111,17 +111,17 @@ class cdh::params {
   }
 
   $mapreduce_max_maps = $::cdh_mapreduce_max_maps ? {
-    undef   => hiera('cdh_mapreduce_max_maps', 3),
+    undef   => hiera('cdh_mapreduce_max_maps', 2),
     default => $::cdh_mapreduce_max_maps
   }
 
   $mapreduce_max_reduces = $::cdh_mapreduce_max_reduces ? {
-    undef   => hiera('cdh_mapreduce_max_reduces', 3),
+    undef   => hiera('cdh_mapreduce_max_reduces', 2),
     default => $::cdh_mapreduce_max_reduces
   }
 
   $mapreduce_max_memory = $::cdh_mapreduce_max_memory ? {
-    undef   => hiera('cdh_mapreduce_max_memory', 3),
+    undef   => hiera('cdh_mapreduce_max_memory', 1024),
     default => $::cdh_mapreduce_max_memory
   }
 
