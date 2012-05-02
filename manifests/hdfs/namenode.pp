@@ -4,13 +4,15 @@ class cdh::hdfs::namenode (
   $hadoop_version = $cdh::params::hadoop_version,
   $hadoop_disks   = $cdh::params::hadoop_disks
 ) inherits cdh::params {
-  
+
+#TODO: This could just manage cdh::hdfs itself and thus lose the explicit dependency on it
+
   # Dependencies
   Class['cdh::base']   -> Class['cdh::hdfs::namenode']
   Class['cdh::config'] -> Class['cdh::hdfs::namenode']
   Class['cdh::hdfs']   -> Class['cdh::hdfs::namenode']
-  
-  
+
+
   package { $package:
     ensure  => $hadoop_version,
   }
@@ -20,7 +22,7 @@ class cdh::hdfs::namenode (
     creates => "${hadoop_disks[0]}/hadoop/dfs/nn",
     user    => 'hdfs',
   }
-
+  
   # TODO: Make it possible to disable this
   service { $service:
     ensure     => running,
@@ -30,6 +32,13 @@ class cdh::hdfs::namenode (
     require    => Package[$package],
     subscribe  => Class['cdh::config', 'cdh::hdfs::config']
   }
+
+  exec { 'create-hdfs-tmp-dir':
+    command => '/usr/bin/hadoop fs -mkdir /tmp && /usr/bin/hadoop fs -chmod -R 1777 /tmp',
+    user    => 'hdfs',
+    unless  => '/usr/bin/hadoop fs -ls /tmp',
+    require => Service[$service],
+ }
 
   #TODO: Make this optional and configurable
   cron { 'hdfs-balancer':
