@@ -1,6 +1,6 @@
 class cdh::mapreduce::tasktracker (
-  $package,
-  $service
+  $package = $cdh::params::tasktracker_package,
+  $service = $cdh::params::tasktracker_service
 ) {
   
   # Dependencies

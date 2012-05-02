@@ -87,6 +87,17 @@ class cdh::params {
   }
   
   
+  $tasktracker_package = $::cdh_tasktracker_package ? {
+    undef   => hiera('cdh_tasktracker_package', 'hadoop-0.20-tasktracker'),
+    default => $::cdh_tasktracker_package
+  }
+
+  $tasktracker_service = $::cdh_tasktracker_service ? {
+    undef   => hiera('cdh_tasktracker_service', 'hadoop-0.20-tasktracker'),
+    default => $::cdh_tasktracker_service
+  }
+  
+  
   $namenode = $::cdh_namenode ? {
     undef   => hiera('cdh_namenode'),
     default => $::cdh_namenode
