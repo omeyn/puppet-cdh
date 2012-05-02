@@ -63,8 +63,19 @@ class cdh::params {
     undef   => hiera('cdh_namenode_service', 'hadoop-0.20-namenode'),
     default => $::cdh_namenode_service
   }
+
   
-  
+  $datanode_package = $::cdh_datanode_package ? {
+    undef   => hiera('cdh_datanode_package', 'hadoop-0.20-datanode'),
+    default => $::cdh_datanode_package
+  }
+
+  $datanode_service = $::cdh_datanode_service ? {
+    undef   => hiera('cdh_datanode_service', 'hadoop-0.20-datanode'),
+    default => $::cdh_datanode_service
+  }
+
+
   $jobtracker_package = $::cdh_jobtracker_package ? {
     undef   => hiera('cdh_jobtracker_package', 'hadoop-0.20-jobtracker'),
     default => $::cdh_jobtracker_package
@@ -89,7 +100,7 @@ class cdh::params {
   
   
   $hdfs_replication = $::cdh_hdfs_replication ? {
-  	undef   => hiera('cdh_hdfs_replication', 3),
-  	default => $::cdh_hdfs_replication
+    undef   => hiera('cdh_hdfs_replication', 3),
+    default => $::cdh_hdfs_replication
   }
 }
