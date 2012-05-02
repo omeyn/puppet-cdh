@@ -29,6 +29,8 @@ class cdh (
     hadoop_package        => $hadoop_package,
     hadoop_native_package => $hadoop_native_package,
     hadoop_version        => $hadoop_version,
+    config_directory      => $config_directory,
+    hadoop_disks          => $hadoop_disks,
   }
   
   class { 'cdh::config':
