@@ -19,6 +19,7 @@ class cdh::hdfs::datanode (
     enable     => true,
     hasstatus  => true,
     hasrestart => true,
+    require    => Package[$package],
     subscribe  => Class['cdh::config', 'cdh::hdfs::config']
   }
 
