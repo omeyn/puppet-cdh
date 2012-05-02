@@ -26,8 +26,8 @@ class cdh (
   }
   
   class { 'cdh::base':
-    hadoop_package        => $hadoop_package,
-    hadoop_native_package => $hadoop_native_package,
+    package        => $hadoop_package,
+    native_package => $hadoop_native_package,
     hadoop_version        => $hadoop_version,
     config_directory      => $config_directory,
     hadoop_disks          => $hadoop_disks,
