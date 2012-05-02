@@ -1,10 +1,10 @@
 class cdh::mapreduce (
-  $config_directory      = $cdh::params::config_directory,
-  $hadoop_disks          = $cdh::params::hadoop_disks,
-  $jobtracker            = $cdh::params::jobtracker,
-  $mapreduce_max_maps    = $cdh::params::mapreduce_max_maps,
-  $mapreduce_max_reduces = $cdh::params::mapreduce_max_reduces,
-  $mapreduce_max_memory  = $cdh::params::mapreduce_max_memory
+  $config_directory = $cdh::params::config_directory,
+  $hadoop_disks     = $cdh::params::hadoop_disks,
+  $jobtracker       = $cdh::params::jobtracker,
+  $max_maps         = $cdh::params::mapreduce_max_maps,
+  $max_reduces      = $cdh::params::mapreduce_max_reduces,
+  $max_memory       = $cdh::params::mapreduce_max_memory
 ) inherits cdh::params {
   
   # Dependencies
@@ -15,9 +15,9 @@ class cdh::mapreduce (
     config_directory      => $config_directory,
     hadoop_disks          => $hadoop_disks,
     jobtracker            => $jobtracker,
-    mapreduce_max_maps    => $mapreduce_max_maps,
-    mapreduce_max_reduces => $mapreduce_max_reduces,
-    mapreduce_max_memory  => $mapreduce_max_memory,
+    max_maps    => $mapreduce_max_maps,
+    max_reduces => $mapreduce_max_reduces,
+    max_memory  => $mapreduce_max_memory,
   }
 
   define hadoop_mapreduce_directory() {
