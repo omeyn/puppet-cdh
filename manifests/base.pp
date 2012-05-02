@@ -11,6 +11,7 @@ class cdh::base (
   
   package { $package:
     ensure  => $hadoop_version,
+    notify  => Exec['hadoop-alternatives']
   }
   
   package { $native_package:
