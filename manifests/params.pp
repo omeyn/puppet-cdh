@@ -103,4 +103,26 @@ class cdh::params {
     undef   => hiera('cdh_hdfs_replication', 3),
     default => $::cdh_hdfs_replication
   }
+  
+  
+  $jobtracker = $::cdh_jobtracker ? {
+    undef   => hiera('cdh_jobtracker'),
+    default => $::cdh_jobtracker
+  }
+
+  $mapreduce_max_maps = $::cdh_mapreduce_max_maps ? {
+    undef   => hiera('cdh_mapreduce_max_maps', 3),
+    default => $::cdh_mapreduce_max_maps
+  }
+
+  $mapreduce_max_reduces = $::cdh_mapreduce_max_reduces ? {
+    undef   => hiera('cdh_mapreduce_max_reduces', 3),
+    default => $::cdh_mapreduce_max_reduces
+  }
+
+  $mapreduce_max_memory = $::cdh_mapreduce_max_memory ? {
+    undef   => hiera('cdh_mapreduce_max_memory', 3),
+    default => $::cdh_mapreduce_max_memory
+  }
+
 }
