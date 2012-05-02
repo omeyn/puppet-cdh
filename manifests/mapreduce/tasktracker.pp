@@ -4,9 +4,9 @@ class cdh::mapreduce::tasktracker (
 ) {
   
   # Dependencies
-  Class['cdh::base']      -> Class['cdh::mapreduce::jobtracker']
-  Class['cdh::config']    -> Class['cdh::mapreduce::jobtracker']
-  Class['cdh::mapreduce'] -> Class['cdh::mapreduce::jobtracker']
+  Class['cdh::base']      -> Class['cdh::mapreduce::tasktracker']
+  Class['cdh::config']    -> Class['cdh::mapreduce::tasktracker']
+  Class['cdh::mapreduce'] -> Class['cdh::mapreduce::tasktracker']
   
   
   package { $package:
