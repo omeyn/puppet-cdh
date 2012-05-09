@@ -19,6 +19,7 @@ class cdh::hbase (
     namenode         => $namenode,
     rootdir          => $rootdir,
     zookeeper        => $zookeeper,
+    heapsize         => $heapsize,
     block_cache_size => $block_cache_size,
     ganglia_address  => $ganglia_address,
     require          => Package[$package],
