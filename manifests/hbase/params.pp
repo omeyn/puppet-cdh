@@ -33,7 +33,7 @@ class cdh::hbase::params {
   }
 
   $heapsize = $::cdh_hbase_heapsize ? {
-    undef   => hiera('cdh_hbase_heapsize'),
+    undef   => hiera('cdh_hbase_heapsize', '1000'),
     default => $::cdh_hbase_heapsize
   }
 
