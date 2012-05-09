@@ -58,5 +58,16 @@ class cdh::hbase::params {
     undef   => hiera('cdh_hbase_master_service', 'hadoop-hbase-master'),
     default => $::cdh_hbase_master_service
   }
+
+
+  $regionserver_package = $::cdh_hbase_regionserver_package ? {
+    undef   => hiera('cdh_hbase_regionserver_package', 'hadoop-hbase-regionserver'),
+    default => $::cdh_hbase_regionserver_package
+  }
+  
+  $regionserver_service = $::cdh_hbase_regionserver_service ? {
+    undef   => hiera('cdh_hbase_regionserver_service', 'hadoop-hbase-regionserver'),
+    default => $::cdh_hbase_regionserver_service
+  }
   
 }
