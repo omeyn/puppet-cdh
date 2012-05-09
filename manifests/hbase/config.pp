@@ -12,7 +12,7 @@ class cdh::hbase::config (
   Class['cdh::hbase'] -> Class['cdh::hbase::config']
 
 
-  file { '${config_directory}/hbase-site.xml':
+  file { "${config_directory}/hbase-site.xml":
     ensure  => present,
     content => template('cdh/hbase/hbase-site.xml.erb'),
     mode    => '0644',
@@ -20,7 +20,7 @@ class cdh::hbase::config (
     group   => 'root',
   }
 
-  file { '${config_directory}/hbase-env.sh':
+  file { "${config_directory}/hbase-env.sh":
     ensure  => present,
     content => template('cdh/hbase/hbase-env.sh.erb'),
     mode    => '0755',
@@ -28,7 +28,7 @@ class cdh::hbase::config (
     group   => 'root',
   }
 
-  file { '${config_directory}/hadoop-metrics.properties':
+  file { "${config_directory}/hadoop-metrics.properties":
     ensure  => present,
     content => template('cdh/hbase/hadoop-metrics.properties.erb'),
     mode    => '0644',
