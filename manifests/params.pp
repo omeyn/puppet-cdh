@@ -108,7 +108,11 @@ class cdh::params {
     default => split($::cdh_hadoop_disks, ',')
   }
   validate_array($hadoop_disks)
-  
+
+  $ganglia_address = $::cdh_ganglia_address ? {
+    undef   => hiera('cdh_ganglia_address'),
+    default => split($::cdh_ganglia_address, ',')
+  }
   
   $hdfs_replication = $::cdh_hdfs_replication ? {
     undef   => hiera('cdh_hdfs_replication', 3),

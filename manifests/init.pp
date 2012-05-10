@@ -10,7 +10,8 @@ class cdh (
   $hadoop_version        = $cdh::params::hadoop_version,
   $config_directory      = $cdh::params::config_directory,
   $namenode              = $cdh::params::namenode,
-  $hadoop_disks          = $cdh::params::hadoop_disks
+  $hadoop_disks          = $cdh::params::hadoop_disks,
+  $ganglia_address       = $cdh::params::ganglia_address
 ) inherits cdh::params {
   
   if $java_class != 'DISABLED' {
@@ -37,6 +38,7 @@ class cdh (
     config_directory => $config_directory,
     namenode         => $namenode,
     hadoop_disks     => $hadoop_disks,
+    ganglia_address  => $ganglia_address,
   }
 
 }
