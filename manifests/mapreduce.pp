@@ -12,12 +12,12 @@ class cdh::mapreduce (
 
 
   class { 'cdh::mapreduce::config':
-    config_directory      => $config_directory,
-    hadoop_disks          => $hadoop_disks,
-    jobtracker            => $jobtracker,
-    max_maps    => $mapreduce_max_maps,
-    max_reduces => $mapreduce_max_reduces,
-    max_memory  => $mapreduce_max_memory,
+    config_directory => $config_directory,
+    hadoop_disks     => $hadoop_disks,
+    jobtracker       => $jobtracker,
+    max_maps         => $mapreduce_max_maps,
+    max_reduces      => $mapreduce_max_reduces,
+    max_memory       => $mapreduce_max_memory,
   }
 
   define hadoop_mapreduce_directory() {

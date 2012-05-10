@@ -9,7 +9,7 @@ class cdh::config (
   Class['cdh::base'] -> Class['cdh::config']
 
   file { "${config_directory}/core-site.xml":
-    content => template("cdh/base/core-site.xml.erb"),
+    content => template('cdh/base/core-site.xml.erb'),
     ensure  => present,
     mode    => '0644',
     owner   => 'root',
